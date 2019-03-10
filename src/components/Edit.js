@@ -7,8 +7,8 @@ export class Edit extends Component {
         <div>
             <p>
                 Placeholder Edit page
-                <Link to="/Gude-Foods/home" class="btn btn-lg btn-secondary">Home</Link>
-                <Link to="/Gude-Foods/edit" class="btn btn-lg btn-secondary">Edit</Link>
+                <Link to="/Gude-Foods/home" className="btn btn-lg btn-secondary">Home</Link>
+                <Link to="/Gude-Foods/edit" className="btn btn-lg btn-secondary">Edit</Link>
             </p>
         </div>
     );

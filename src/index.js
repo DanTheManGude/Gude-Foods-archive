@@ -33,10 +33,20 @@ const banners = (state = [{'message': initialMessage, 'type': 'alert-info'}], ac
         }
 }
 
+const recipes = (state = [], action) => {
+    switch (action.type) {
+        case 'LOAD_RECIPES':
+            return action.state;
+        default:
+            return state;
+        }
+}
+
 //main reducer
 const appState = combineReducers({
     currentUser,
-    banners
+    banners,
+    recipes
 });
 
 //redux store

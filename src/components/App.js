@@ -35,12 +35,33 @@ export function GoogleLogin(){
         console.log("Error " + errorCode + ": " + errorMessage);
     });
 }
+
+function parseFirebase(json){
+  if (json === null){
+      store.dispatch({
+          type: 'ADD_BANNER',
+          message: "No recipes!",
+          'kind': 'alert-warning'
+      });
+      return;
+  }
+
+  store.dispatch({
+      type: 'LOAD_RECIPES',
+      state: json
+  });
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     // Initialize Firebase
     firebase.initializeApp(config);
+
+    firebase.database().ref('recipes/').once('value').then(function(snapshot) {
+        parseFirebase(snapshot.val());
+    });
   }
 
   render() {
