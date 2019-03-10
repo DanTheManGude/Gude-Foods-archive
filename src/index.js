@@ -30,7 +30,7 @@ const banners = (state = [{'message': initialMessage, 'type': 'alert-info'}], ac
             return newS;
         default:
             return state;
-        }
+    }
 }
 
 const recipes = (state = [], action) => {
@@ -39,14 +39,24 @@ const recipes = (state = [], action) => {
             return action.state;
         default:
             return state;
-        }
+    }
+}
+
+const editingRecipe = (state = null, action) => {
+    switch (action.type) {
+        case 'EDIT_RECIPE':
+            return action.state;
+        default:
+            return state;
+    }
 }
 
 //main reducer
 const appState = combineReducers({
     currentUser,
     banners,
-    recipes
+    recipes,
+    editingRecipe
 });
 
 //redux store
