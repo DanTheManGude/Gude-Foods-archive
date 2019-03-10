@@ -55,9 +55,10 @@ class App extends Component {
               <h2 id="title" className="mt-5">Gude Foods</h2>
               <Banner />
               <Switch>
-                  <Route exact path='/home' component={Home}/>
-                  <Route exact path='/edit' component={Edit}/>
-                  <Route path='/' render={() => (<Redirect to="/home"/>)}/>
+                  <Route exact path='/Gude-Foods/home' component={Home}/>
+                  <Route exact path='/Gude-Foods/edit' component={Edit}/>
+                  <Route path='/Gude-Foods/' render={() => (<Redirect to="/Gude-Foods/home"/>)}/>
+                  <Route path='/' render={() => (<Redirect to="/Gude-Foods/"/>)}/>
               </Switch>
             </div>
           </div>
