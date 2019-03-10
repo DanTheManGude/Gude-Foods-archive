@@ -1,0 +1,7 @@
+/*pointer styles */
+.pointer, .btn, a {
+    cursor: pointer;
+}
+.default {
+    cursor: default;
+}
