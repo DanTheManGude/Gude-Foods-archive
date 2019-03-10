@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { store } from '../index.js';
 
 export class Edit extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {redirect: false};
+        this.handleDelete = this.handleDelete.bind(this);
+    }
+
+    handleDelete(event) {
+        store.dispatch({
+            type: 'DELETE_RECIPE',
+            id: 0
+        });
+        this.setState({redirect: true});
+    }
+
     render() {
+        console.log(this);
+        if (this.state.redirect) {
+            return <Redirect push to="/Gude-Foods/home" />;
+        }
+
         if (store.getState().editingRecipe == null) {
             return (
                 <p>
@@ -11,6 +31,7 @@ export class Edit extends Component {
                 </p>
             )
         }
+
         return (
             <div>
                 <p>
