@@ -19,7 +19,34 @@ export class Edit extends Component {
                     {store.getState().editingRecipe.about.time} |&nbsp;
                     {store.getState().editingRecipe.about.makes}
                 </p>
-                <Link to="/Gude-Foods/home" className="btn btn-lg btn-secondary">Home</Link>
+
+                <div className="flex-container">
+                    <button className="btn btn-danger flex-element" data-toggle="modal" data-target="#DeleteModal">Delete</button>
+                    <Link to="/Gude-Foods/home" className="btn btn-secondary flex-element">Cancel</Link>
+                    <Link to="/Gude-Foods/home" className="btn btn-success flex-element">Save</Link>
+                </div>
+
+                <div className="modal fade" id="DeleteModal" role="dialog">
+                  <div className="modal-dialog modal-sm">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h4 className="modal-title">Delete Recipe</h4>
+                        <button type="button" className="close btn" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div className="modal-body">
+                        <p>
+                            Are you sure you want to delete <strong>{store.getState().editingRecipe.name}</strong>?
+                        </p>
+                      </div>
+                      <div className="modal-footer">
+                        <div className="flex-container">
+                            <button type="button" onClick={this.handleDelete} className="btn btn-danger flex-element" data-dismiss="modal">Delete</button>
+                            <button type="button" className="btn btn-secondary flex-element" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
         );
     }
