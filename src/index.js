@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom'
 import App from './components/App';
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { combineReducers } from 'redux';
@@ -44,9 +45,9 @@ export const store = createStore(appState, window.__REDUX_DEVTOOLS_EXTENSION__ &
 //root render of the application
 const render = () => {
     ReactDOM.render(
-        <div>
+        <BrowserRouter>
             <App />
-        </div>,
+        </BrowserRouter>,
         document.getElementById('root')
     );
 };
