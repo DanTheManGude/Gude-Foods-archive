@@ -1,23 +1,23 @@
 {
     "about":{
-        "makes":"ex makes",
-        "purpose":"ex purpose",
-        "time":"ex time"
+        "makes":"Example Makes",
+        "purpose":"Example Purpose",
+        "time":"Example Time"
     },
     "ingredients":[
         {
-            "quantity":"ex quantity 0",
-            "what":"ex what 0"
+            "quantity":"Example Quantity 1",
+            "what":"Example What 1"
         },
         {
-            "quantity":"ex quantity 1",
-            "what":"ex what 1"
+            "quantity":"Example Quantity 2",
+            "what":"Example What 2"
         }
     ],
-    "name":"ex name",
+    "name":"Example Name",
     "procedure":
     [
-        "ex step 0",
-        "ex step 1"
+        "Example Step 1",
+        "Example Step 2"
     ]
 }

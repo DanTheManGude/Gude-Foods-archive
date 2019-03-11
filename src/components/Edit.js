@@ -42,6 +42,12 @@ export class Edit extends Component {
         this.updateEditing({...store.getState().editingRecipe.recipe,ingredients: newIngredients});
     }
 
+    handleDeleteIngredient(index){
+        var newIngredients = store.getState().editingRecipe.recipe.ingredients;
+        newIngredients.splice(index, 1);
+        this.updateEditing({...store.getState().editingRecipe.recipe,ingredients: newIngredients});
+    }
+
     handleNewIngredient(){
         var newIngredients = store.getState().editingRecipe.recipe.ingredients;
         newIngredients.push({quantity: "New Quantity", what: "New What"});
@@ -54,9 +60,15 @@ export class Edit extends Component {
         this.updateEditing({...store.getState().editingRecipe.recipe,procedure: newProcedure});
     }
 
-    handleNewStep(){
+    handleDeleteStep(index){
         var newProcedure = store.getState().editingRecipe.recipe.procedure;
-        newProcedure.push("New Step");
+        newProcedure.splice(index, 1);
+        this.updateEditing({...store.getState().editingRecipe.recipe,procedure: newProcedure});
+    }
+
+    handleNewStep(index){
+        var newProcedure = store.getState().editingRecipe.recipe.procedure;
+        newProcedure.splice(index, 0, "New Step " + (index+1));
         this.updateEditing({...store.getState().editingRecipe.recipe,procedure: newProcedure});
     }
 
@@ -167,6 +179,8 @@ export class Edit extends Component {
                                     &nbsp; &nbsp; &nbsp;
                                     <label className="control-label">What: &nbsp; </label>
                                     <input type="text" className="form-control" placeholder="What" value={ingredient.what} onChange={this.handleWhat.bind(this, index)}/>
+                                    &nbsp; &nbsp; &nbsp;
+                                    <button type="button" onClick={this.handleDeleteIngredient.bind(this, index)} className="btn btn-warning">Delete Ingredient</button>
                                 </div>
                             </li>
                         )}
@@ -174,17 +188,22 @@ export class Edit extends Component {
                 </div>
                 <button type="button" onClick={this.handleNewIngredient.bind(this)} className="btn btn-info">Add Ingredient</button>
                 <br/>
+                <br/>
                 <div className="form-inline">
                     <label className="control-label col-sm-2">Procedure: </label>
                     <ol>
                         {store.getState().editingRecipe.recipe.procedure.map((step, index) =>
                             <li>
                                 <input key={index} type="text" className="form-control" placeholder="Step" value={step} onChange={this.handleStep.bind(this, index)}/>
+                                &nbsp; &nbsp; &nbsp;
+                                <button type="button" onClick={this.handleNewStep.bind(this, index)} className="btn btn-info">Add Step before this one</button>
+                                &nbsp; &nbsp; &nbsp;
+                                <button type="button" onClick={this.handleDeleteStep.bind(this, index)} className="btn btn-warning">Delete Step</button>
                             </li>
                         )}
                     </ol>
                 </div>
-                <button type="button" onClick={this.handleNewStep.bind(this)} className="btn btn-info">Add Step</button>
+                <button type="button" onClick={this.handleNewStep.bind(this, store.getState().editingRecipe.recipe.procedure.length)} className="btn btn-info">Add Step to the End</button>
                 <br/>
                 <br/>
                 <br/>
