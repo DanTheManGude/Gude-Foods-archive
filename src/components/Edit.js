@@ -44,8 +44,20 @@ export class Edit extends Component {
 
     handleNewIngredient(){
         var newIngredients = store.getState().editingRecipe.recipe.ingredients;
-        newIngredients.push({quantity: "new quantity", what: "new what"});
+        newIngredients.push({quantity: "New Quantity", what: "New What"});
         this.updateEditing({...store.getState().editingRecipe.recipe,ingredients: newIngredients});
+    }
+
+    handleStep(index, event) {
+        var newProcedure = store.getState().editingRecipe.recipe.procedure;
+        newProcedure[index] = event.target.value;
+        this.updateEditing({...store.getState().editingRecipe.recipe,procedure: newProcedure});
+    }
+
+    handleNewStep(){
+        var newProcedure = store.getState().editingRecipe.recipe.procedure;
+        newProcedure.push("New Step");
+        this.updateEditing({...store.getState().editingRecipe.recipe,procedure: newProcedure});
     }
 
     updateEditing(state){
@@ -158,14 +170,24 @@ export class Edit extends Component {
                                 </div>
                             </li>
                         )}
-                        <li>
-                            <button type="button" onClick={this.handleNewIngredient.bind(this)} className="btn btn-info">Add Ingredient</button>
-                        </li>
                     </ul>
-
                 </div>
+                <button type="button" onClick={this.handleNewIngredient.bind(this)} className="btn btn-info">Add Ingredient</button>
                 <br/>
-                
+                <div className="form-inline">
+                    <label className="control-label col-sm-2">Procedure: </label>
+                    <ol>
+                        {store.getState().editingRecipe.recipe.procedure.map((step, index) =>
+                            <li>
+                                <input key={index} type="text" className="form-control" placeholder="Step" value={step} onChange={this.handleStep.bind(this, index)}/>
+                            </li>
+                        )}
+                    </ol>
+                </div>
+                <button type="button" onClick={this.handleNewStep.bind(this)} className="btn btn-info">Add Step</button>
+                <br/>
+                <br/>
+                <br/>
 
                 <div className="flex-container">
                     <button className="btn btn-danger flex-element" data-toggle="modal" data-target="#DeleteModal">Delete</button>
