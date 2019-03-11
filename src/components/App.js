@@ -109,10 +109,9 @@ class App extends Component {
               <Banner />
               <input style={{display:"none"}} accept="json" className="form-control" type="file" onChange={this.onFileSubmit.bind(this)}/>
               <Switch>
-                  <Route exact path='/Gude-Foods/home' component={Home}/>
+                  <Route exact path='/Gude-Foods' component={Home}/>
                   <Route exact path='/Gude-Foods/edit' component={Edit}/>
-                  <Route path='/Gude-Foods/' render={() => (<Redirect to="/Gude-Foods/home"/>)}/>
-                  <Route path='/' render={() => (<Redirect to="/Gude-Foods/"/>)}/>
+                  <Route path='/' render={() => (<Redirect to="/Gude-Foods"/>)}/>
               </Switch>
             </div>
           </div>

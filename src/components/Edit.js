@@ -147,7 +147,7 @@ export class Edit extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect push to="/Gude-Foods/home" />;
+            return <Redirect push to="/Gude-Foods" />;
         }
 
         if (store.getState().editingRecipe == null) {
