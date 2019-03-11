@@ -30,6 +30,10 @@ export class Edit extends Component {
         this.updateEditing({...store.getState().editingRecipe.recipe,about: newAbout});
     }
 
+    handleNotes(event) {
+        this.updateEditing({...store.getState().editingRecipe.recipe,notes: event.target.value});
+    }
+
     handleQuantity(index, event) {
         var newIngredients = store.getState().editingRecipe.recipe.ingredients;
         newIngredients[index].quantity = event.target.value;
@@ -174,6 +178,11 @@ export class Edit extends Component {
                 <div className="form-inline">
                     <label className="control-label col-sm-2">Makes: </label>
                     <input type="text" className="form-control" placeholder="Makes" value={store.getState().editingRecipe.recipe.about.makes} onChange={this.handleMakes.bind(this)}/>
+                </div>
+                <br/>
+                <div className="form-inline">
+                    <label className="control-label col-sm-2">Notes: </label>
+                    <input type="text" className="form-control" placeholder="Notes" value={store.getState().editingRecipe.recipe.notes} onChange={this.handleNotes.bind(this)}/>
                 </div>
                 <br/>
                 <div className="form-inline">
