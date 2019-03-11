@@ -19,6 +19,7 @@ body {
 #RecipeList {
     float: left;
     text-align: left;
+    list-style-type: none
 }
 
 .flex-container {
@@ -30,8 +31,4 @@ body {
   width: 100%;
   margin: 0 2%;
   text-align: center;
-}
-
-#RecipeList {
-    list-style-type: none
 }

@@ -12,9 +12,28 @@ export class Edit extends Component {
     }
 
     handleName(event) {
+        this.updateEditing({...store.getState().editingRecipe.recipe,name: event.target.value});
+    }
+
+    handlePurpose(event) {
+        var newAbout = {...store.getState().editingRecipe.recipe.about, purpose: event.target.value}
+        this.updateEditing({...store.getState().editingRecipe.recipe,about: newAbout});
+    }
+
+    handleTime(event) {
+        var newAbout = {...store.getState().editingRecipe.recipe.about, time: event.target.value}
+        this.updateEditing({...store.getState().editingRecipe.recipe,about: newAbout});
+    }
+
+    handleMakes(event) {
+        var newAbout = {...store.getState().editingRecipe.recipe.about, makes: event.target.value}
+        this.updateEditing({...store.getState().editingRecipe.recipe,about: newAbout});
+    }
+
+    updateEditing(state){
         store.dispatch({
             type: 'EDITING_RECIPE',
-            state: {...store.getState().editingRecipe.recipe,name: event.target.value},
+            state: state,
             index: store.getState().editingRecipe.index
         });
     }
@@ -87,19 +106,26 @@ export class Edit extends Component {
 
         return (
             <div>
-                <p>
-                    <strong>{store.getState().editingRecipe.recipe.name}</strong>—&nbsp;
-                    {store.getState().editingRecipe.recipe.about.purpose} |&nbsp;
-                    {store.getState().editingRecipe.recipe.about.time} |&nbsp;
-                    {store.getState().editingRecipe.recipe.about.makes}
-                </p>
-
-                <form className="form-horizontal">
-                    <div className="form-group">
-                        <label className="control-label">Name: </label>
-                        <input type="text" className="form-control" placeholder="Name" value={store.getState().editingRecipe.recipe.name} onChange={this.handleName}/>
-                    </div>
-                </form>
+                <div className="form-inline">
+                    <label className="control-label col-sm-2">Name: </label>
+                    <input type="text" className="form-control" placeholder="Name" value={store.getState().editingRecipe.recipe.name} onChange={this.handleName.bind(this)}/>
+                </div>
+                <br/>
+                <div className="form-inline">
+                    <label className="control-label col-sm-2">Purpose: </label>
+                    <input type="text" className="form-control" placeholder="Purpose" value={store.getState().editingRecipe.recipe.about.purpose} onChange={this.handlePurpose.bind(this)}/>
+                </div>
+                <br/>
+                <div className="form-inline">
+                    <label className="control-label col-sm-2">Time: </label>
+                    <input type="text" className="form-control" placeholder="Time" value={store.getState().editingRecipe.recipe.about.time} onChange={this.handleTime.bind(this)}/>
+                </div>
+                <br/>
+                <div className="form-inline">
+                    <label className="control-label col-sm-2">Makes: </label>
+                    <input type="text" className="form-control" placeholder="Makes" value={store.getState().editingRecipe.recipe.about.makes} onChange={this.handleMakes.bind(this)}/>
+                </div>
+                <br/>
 
                 <div className="flex-container">
                     <button className="btn btn-danger flex-element" data-toggle="modal" data-target="#DeleteModal">Delete</button>
