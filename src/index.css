@@ -31,3 +31,7 @@ body {
   margin: 0 2%;
   text-align: center;
 }
+
+#RecipeList {
+    list-style-type: none
+}
