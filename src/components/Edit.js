@@ -30,6 +30,24 @@ export class Edit extends Component {
         this.updateEditing({...store.getState().editingRecipe.recipe,about: newAbout});
     }
 
+    handleQuantity(index, event) {
+        var newIngredients = store.getState().editingRecipe.recipe.ingredients;
+        newIngredients[index].quantity = event.target.value;
+        this.updateEditing({...store.getState().editingRecipe.recipe,ingredients: newIngredients});
+    }
+
+    handleWhat(index, event) {
+        var newIngredients = store.getState().editingRecipe.recipe.ingredients;
+        newIngredients[index].what = event.target.value;
+        this.updateEditing({...store.getState().editingRecipe.recipe,ingredients: newIngredients});
+    }
+
+    handleNewIngredient(){
+        var newIngredients = store.getState().editingRecipe.recipe.ingredients;
+        newIngredients.push({quantity: "new quantity", what: "new what"});
+        this.updateEditing({...store.getState().editingRecipe.recipe,ingredients: newIngredients});
+    }
+
     updateEditing(state){
         store.dispatch({
             type: 'EDITING_RECIPE',
@@ -126,6 +144,28 @@ export class Edit extends Component {
                     <input type="text" className="form-control" placeholder="Makes" value={store.getState().editingRecipe.recipe.about.makes} onChange={this.handleMakes.bind(this)}/>
                 </div>
                 <br/>
+                <div className="form-inline">
+                    <label className="control-label col-sm-2">Ingredients: </label>
+                    <ul>
+                        {store.getState().editingRecipe.recipe.ingredients.map((ingredient, index) =>
+                            <li>
+                                <div className="form-inline">
+                                    <label className="control-label">Quantity: &nbsp; </label>
+                                    <input key={index} type="text" className="form-control" placeholder="Quantity" value={ingredient.quantity} onChange={this.handleQuantity.bind(this, index)}/>
+                                    &nbsp; &nbsp; &nbsp;
+                                    <label className="control-label">What: &nbsp; </label>
+                                    <input type="text" className="form-control" placeholder="What" value={ingredient.what} onChange={this.handleWhat.bind(this, index)}/>
+                                </div>
+                            </li>
+                        )}
+                        <li>
+                            <button type="button" onClick={this.handleNewIngredient.bind(this)} className="btn btn-info">Add Ingredient</button>
+                        </li>
+                    </ul>
+
+                </div>
+                <br/>
+                
 
                 <div className="flex-container">
                     <button className="btn btn-danger flex-element" data-toggle="modal" data-target="#DeleteModal">Delete</button>
