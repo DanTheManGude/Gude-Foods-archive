@@ -45,6 +45,10 @@ export class Edit extends Component {
     handleDeleteIngredient(index){
         var newIngredients = store.getState().editingRecipe.recipe.ingredients;
         newIngredients.splice(index, 1);
+        if (newIngredients.length === 0){
+            this.handleNewIngredient();
+            return;
+        }
         this.updateEditing({...store.getState().editingRecipe.recipe,ingredients: newIngredients});
     }
 
@@ -63,6 +67,10 @@ export class Edit extends Component {
     handleDeleteStep(index){
         var newProcedure = store.getState().editingRecipe.recipe.procedure;
         newProcedure.splice(index, 1);
+        if (newProcedure.length === 0){
+            this.handleNewStep(0);
+            return;
+        }
         this.updateEditing({...store.getState().editingRecipe.recipe,procedure: newProcedure});
     }
 
@@ -204,7 +212,7 @@ export class Edit extends Component {
                     </ol>
                 </div>
                 <button type="button" onClick={this.handleNewStep.bind(this, store.getState().editingRecipe.recipe.procedure.length)} className="btn btn-info">Add Step to the End</button>
-                <br/>
+
                 <br/>
                 <br/>
 
@@ -213,6 +221,10 @@ export class Edit extends Component {
                     <button type="button" onClick={this.handleCancel.bind(this)} className="btn btn-secondary flex-element">Cancel</button>
                     <button type="button" onClick={this.handleSave.bind(this)} className="btn btn-success flex-element">Save</button>
                 </div>
+
+                <br/>
+                <br/>
+                <br/>
 
                 <div className="modal fade" id="DeleteModal" role="dialog">
                   <div className="modal-dialog modal-sm">
