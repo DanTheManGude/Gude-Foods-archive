@@ -147,13 +147,21 @@ export class Edit extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect push to="/Gude-Foods" />;
+            return <Redirect push to="/Gude-Foods/" />;
+        }
+
+        if (!store.getState().currentUser.status){
+            return (
+                <p>
+                    Sorry, you are not authorized to edit a recipe. Please return to the <Link to="/Gude-Foods/">homepage</Link>
+                </p>
+            )
         }
 
         if (store.getState().editingRecipe == null) {
             return (
                 <p>
-                    Sorry, looks like something went wrong. Please return to the <a href="http://DanTheManGude.github.io/Gude-Foods">homepage</a>.
+                    Sorry, looks like something went wrong. Please return to the <a href="http://DanTheManGude.github.io/Gude-Foods">homepage</a>
                 </p>
             )
         }

@@ -6,12 +6,18 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { combineReducers } from 'redux';
+import { users } from './users.js';
 
 //reducer current logged in user
-const currentUser = (state = null, action) => {
+const currentUser = (state = {'email': null, 'status': false}, action) => {
     switch (action.type) {
         case 'UPDATE_USER':
-            return action.user;
+            var email = action.email;
+            var status = users.includes(email);
+            return {
+                'email': email,
+                'status': status
+            }
         default:
             return state;
         }

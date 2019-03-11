@@ -22,7 +22,7 @@ export function GoogleLogin(){
         });
         store.dispatch({
             type: 'UPDATE_USER',
-            user: result.user.email
+            email: result.user.email
         });
     }).catch(function(error) {
         store.dispatch({
@@ -111,7 +111,7 @@ class App extends Component {
               <Switch>
                   <Route exact path='/Gude-Foods' component={Home}/>
                   <Route exact path='/Gude-Foods/edit' component={Edit}/>
-                  <Route path='/' render={() => (<Redirect to="/Gude-Foods"/>)}/>
+                  <Route path='/' render={() => (<Redirect to="/Gude-Foods/"/>)}/>
               </Switch>
             </div>
           </div>
