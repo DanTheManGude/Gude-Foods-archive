@@ -8,9 +8,9 @@ export class Home extends Component {
         return (
             <div>
                 <ul id="RecipeList">
-                    {store.getState().recipes.map(recipe =>
-                        <li>
-                            <Recipe state={recipe}/>
+                    {store.getState().recipes.map((recipe, index) =>
+                        <li key={index}>
+                            <Recipe index={index} recipe={recipe}/>
                         </li>
                     )}
                 </ul>

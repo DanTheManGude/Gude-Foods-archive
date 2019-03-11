@@ -37,6 +37,17 @@ const recipes = (state = [], action) => {
     switch (action.type) {
         case 'LOAD_RECIPES':
             return action.state;
+        case 'EDIT_RECIPE':
+            if (action.index === state.length){
+                return state.concat(action.state);
+            }
+            var editS = state;
+            editS.splice(action.index, 1, action.state);
+            return editS;
+        case 'DELETE_RECIPE':
+            var delS = state;
+            delS.splice(action.index, 1);
+            return delS;
         default:
             return state;
     }
@@ -44,8 +55,8 @@ const recipes = (state = [], action) => {
 
 const editingRecipe = (state = null, action) => {
     switch (action.type) {
-        case 'EDIT_RECIPE':
-            return action.state;
+        case 'EDITING_RECIPE':
+            return {recipe: action.state, index: action.index};
         default:
             return state;
     }

@@ -20,7 +20,7 @@ export class Banner extends React.Component {
         return(
             <div>
                 {store.getState().banners.map((banner, index) =>
-                    <div className={"alert alert-dismissable fade show " + banner.type}>
+                    <div key={index} className={"alert alert-dismissable fade show " + banner.type}>
                         <a className="close" id={index} onClick={this.removeBanner}>&times;</a>
                         {banner.message}
                     </div>

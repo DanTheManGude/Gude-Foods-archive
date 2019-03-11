@@ -11,18 +11,19 @@ export class Recipe extends Component {
 
     handleEdit(event) {
         store.dispatch({
-            type: 'EDIT_RECIPE',
-            state: this.props.state
+            type: 'EDITING_RECIPE',
+            state: this.props.recipe,
+            index: this.props.index
         });
     }
 
     render() {
         return (
             <div>
-                <Link to="/Gude-Foods/edit" onClick={this.handleEdit}><strong>{this.props.state.name}</strong>—&nbsp;</Link>
-                {this.props.state.about.purpose} |&nbsp;
-                {this.props.state.about.time} |&nbsp;
-                {this.props.state.about.makes}
+                <Link to="/Gude-Foods/edit" onClick={this.handleEdit}><strong>{this.props.recipe.name}</strong>—&nbsp;</Link>
+                {this.props.recipe.about.purpose} |&nbsp;
+                {this.props.recipe.about.time} |&nbsp;
+                {this.props.recipe.about.makes}
             </div>
         );
     }
