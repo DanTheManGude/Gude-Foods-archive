@@ -64,6 +64,38 @@ class App extends Component {
     });
   }
 
+  onFileSubmit(event) {
+      var json;
+      var file = event.target.files[0];
+      if (file === null){
+          store.dispatch({
+              type: 'ADD_BANNER',
+              message: "No file selected",
+              'kind': 'alert-warning'
+          });
+          return;
+      }
+      var fileReader = new FileReader();
+      fileReader.onload = (function (theFile) {
+          return function(e) {
+              try {
+                  json = JSON.parse(e.target.result);
+                  store.dispatch({
+                      type: 'LOAD_RECIPES',
+                      state: json
+                  });
+              } catch (ex) {
+                  store.dispatch({
+                      type: 'ADD_BANNER',
+                      message: "JSON files created from this website only please!",
+                      'kind': 'alert-warning'
+                  });
+              }
+          }
+      })(file);
+      fileReader.readAsText(file);
+  }
+
   render() {
     return (
       <div className="App">
@@ -75,6 +107,7 @@ class App extends Component {
             <div className="col-lg-12 intro">
               <h2 id="title" className="mt-5">Gude Foods</h2>
               <Banner />
+              <input style={{display:"none"}} accept="json" className="form-control" type="file" onChange={this.onFileSubmit.bind(this)}/>
               <Switch>
                   <Route exact path='/Gude-Foods/home' component={Home}/>
                   <Route exact path='/Gude-Foods/edit' component={Edit}/>
