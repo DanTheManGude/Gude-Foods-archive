@@ -1,7 +1,19 @@
 import React from 'react';
 import { GoogleLogin } from './App.js';
+import { store } from '../index.js';
 
 export class NavBar extends React.Component {
+
+    download(){
+        var data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(store.getState().recipes));
+        var downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", data);
+        downloadAnchorNode.setAttribute("download", "recipes.json");
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    }
+
     render() {
       return (
           <div>
@@ -14,6 +26,9 @@ export class NavBar extends React.Component {
                   </button>
                   <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ml-auto">
+                      <li className="nav-item">
+                        <a className="nav-link" onClick={this.download.bind(this)}><i className="fa fa-code" aria-hidden="true"></i> Download</a>
+                      </li>
                       {/*Github repo where this project can be found*/}
                       <li className="nav-item">
                         <a className="nav-link" href="https://github.com/DanTheManGude/Gude-Foods" target="_blank"><i className="fa fa-code" aria-hidden="true"></i> Source</a>

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { store } from '../index.js';
+import { firebase } from "./App.js";
 
 export class Edit extends Component {
     constructor(props) {
         super(props);
 
         this.state = {redirect: false};
-        this.handleDelete = this.handleDelete.bind(this);
     }
 
     handleName(event) {
@@ -22,13 +22,16 @@ export class Edit extends Component {
     handleDelete(event) {
         store.dispatch({
             type: 'DELETE_RECIPE',
-            id: 0
+            index: store.getState().editingRecipe.index
         });
         this.clearEditing();
+        this.updateFirebase();
     }
+
     handleCancel(event) {
         this.clearEditing();
     }
+
     handleSave(event) {
         store.dispatch({
             type: 'EDIT_RECIPE',
@@ -36,7 +39,9 @@ export class Edit extends Component {
             index: store.getState().editingRecipe.index
         });
         this.clearEditing();
+        this.updateFirebase();
     }
+
     clearEditing() {
         store.dispatch({
             type: 'EDITING_RECIPE',
@@ -46,8 +51,28 @@ export class Edit extends Component {
         this.setState({redirect: true});
     }
 
+    updateFirebase(){
+        try{
+            firebase.database().ref('recipes').set(store.getState().recipes);
+            store.dispatch({
+                type: 'ADD_BANNER',
+                message: "Successfully updated the recipes.",
+                'kind': 'alert-success'
+            });
+        }
+        catch(error) {
+            store.dispatch({
+                type: 'ADD_BANNER',
+                message: "Something went wrong trying to update the recipies.",
+                'kind': 'alert-danger'
+            });
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log("Error " + errorCode + ": " + errorMessage);
+        };
+    }
+
     render() {
-        console.log(this);
         if (this.state.redirect) {
             return <Redirect push to="/Gude-Foods/home" />;
         }
@@ -91,7 +116,7 @@ export class Edit extends Component {
                       </div>
                       <div className="modal-body">
                         <p>
-                            Are you sure you want to delete <strong>{store.getState().editingRecipe.name}</strong>?
+                            Are you sure you want to delete <strong>{store.getState().editingRecipe.recipe.name}</strong>?
                         </p>
                       </div>
                       <div className="modal-footer">
