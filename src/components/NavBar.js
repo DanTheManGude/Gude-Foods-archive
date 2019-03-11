@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { GoogleLogin } from './App.js';
 import { store } from '../index.js';
 
@@ -14,6 +15,14 @@ export class NavBar extends React.Component {
         downloadAnchorNode.remove();
     }
 
+    handleEdit(event) {
+        store.dispatch({
+            type: 'EDITING_RECIPE',
+            state: require('../ExampleRecipe.json'),
+            index: store.getState().recipes.length
+        });
+    }
+
     render() {
       return (
           <div>
@@ -27,7 +36,7 @@ export class NavBar extends React.Component {
                   <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ml-auto">
                       <li className="nav-item">
-                        <a className="nav-link" onClick={this.download.bind(this)}><i className="fa fa-code" aria-hidden="true"></i> Download</a>
+                        <Link to="/Gude-Foods/edit" className="nav-link" onClick={this.handleEdit.bind(this)}><i className="fa fa-plus" aria-hidden="true"></i> Add</Link>
                       </li>
                       {/*Github repo where this project can be found*/}
                       <li className="nav-item">

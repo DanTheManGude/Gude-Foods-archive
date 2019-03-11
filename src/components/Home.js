@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Recipe } from './Recipe.js';
 import { store } from '../index.js';
 
