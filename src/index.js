@@ -24,7 +24,7 @@ const currentUser = (state = {'email': null, 'status': false}, action) => {
 }
 
 //reducer for the banner
-const initialMessage = <div>Welcome to Gude Foods. Featuring recipes of some pretty Gude foods.<br />Click on the Add to add a new Recipie or click on an existing one to edit it.</div>
+const initialMessage = <div>Welcome to Gude Foods. Featuring recipes of some pretty Gude foods.<br />Click on the Add to add a new Recipie or click on the <i className="fa fa-cogs" aria-hidden="true"> </i> next to an existing one to edit it.</div>
 
 const banners = (state = [{'message': initialMessage, 'type': 'alert-info'}], action) => {
     switch (action.type) {

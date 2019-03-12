@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
+import { GoogleLogin } from './App.js';
 import { store } from '../index.js';
 import { firebase } from "./App.js";
 
@@ -153,7 +154,9 @@ export class Edit extends Component {
         if (!store.getState().currentUser.status){
             return (
                 <p>
-                    Sorry, you are not authorized to edit a recipe. Please return to the <Link to="/Gude-Foods/">homepage</Link>
+                    Sorry, you are not authorized to edit a recipe.<br/>
+                    Click here to log in or change account. <a onClick={GoogleLogin}><img src="../icons/google.png" alt="Google Login" height='40em'/></a><br/>
+                    Return to the <Link to="/Gude-Foods/">homepage</Link>
                 </p>
             )
         }
