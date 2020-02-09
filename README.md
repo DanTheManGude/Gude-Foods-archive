@@ -26,7 +26,7 @@
 
 ## Description
 
-([Return to Table of Contents](#Table-of-Contents))
+([Return to Table of Contents](#Table-of-Contents))\
 This application is to serve as a personal collection of food recipies that is also shareable to friends and strangers.
 Production url: http://gudefoods.recipes
 
@@ -97,7 +97,7 @@ Production url: http://gudefoods.recipes
 
 ## How to contribute
 
-([Return to Table of Contents](#Table-of-Contents))
+([Return to Table of Contents](#Table-of-Contents))\
 Hit me up at [dgude31@gmail.com](mailto:dgude31@gmail.com "My Email").
 
 ### Pull Request Checklist
@@ -115,23 +115,24 @@ Be sure to follow these guidelines for making a [PR](https://circleci.com/gh/Dan
 - The new code works on the deployment app
 - README sections are updated appropriately
 - API.json is updated appropriately
-- The PR description includes a step by step of the new use case created or modified.
+- The PR description includes a step by step of the use case created or modified.
 
-Open PRs will be built and deployed using [Heroku](#Heroku-Deployment) so we can test on mobile devices as well. With direct push access be sure to subscribe to the following [guidelines](#Guidelines) as close as you can.
+Open PRs will be built and deployed using [Heroku](#Heroku-Deployment) to test on mobile devices as well. With direct push access be sure to subscribe to the following [guidelines](#Guidelines) as close as you can.
 
 ### Guidelines
 
 - To work on an open issue, create a [branch](#Branches) with a name that pertains to that task, and assign it to yourself.
-- Follow the existing coding pattern and precticies.
-- UGJ
+- Follow the existing coding pattern and practicies.
+- Use good judgment
 
 ### Branches
 
-- `master` source for PROD deploys
-- `qa` is the bridge between `master` and other branches, staging QA area before rolling something out to PROD.
-- `dev` has a live DEV deploy to test changes
+- `master` source for PROD deploys <https://gudefoods.recipes>
+- `qa` Staging QA area before rolling something out to PROD. <https://qa.gudefoods.recipes>
+- `dev` has a live DEV deploy to test changes <https://dev.gudefoods.recipes>
+- _Note: the history on `dev` may be overwitten at anytime_
 - Create feature branches as you see fit.
-- When done with your feature, make a PR into `dev`. _Note: the history on `dev` may be overwitten at anytime_
+- When done with your feature, make a PR into `qa`.
 - Delete branches after merging when a feature is finished.
 
 ### Prettier
@@ -149,7 +150,7 @@ You should update the version value in `/package.json` accordingly in format x.y
 
 ## How does it work though?
 
-([Return to Table of Contents](#Table-of-Contents))
+([Return to Table of Contents](#Table-of-Contents))\
 This website has its frontend and backend split into 2 separate projects.
 
 ### Frontend
@@ -175,6 +176,6 @@ Testing is powered by Chai and Mocha. To run the test use `npm test`. Tests are 
 
 ## Heroku Deployment
 
-([Return to Table of Contents](#Table-of-Contents))
-[Heroku](http://heroku.com "Heroku Homepage") is used to for continuous deployment. Any open PRs coming from within the repo (ie not outside people), Heroku will make a temporary app to deploy it. The url that it can be found at is [https://gude-foods-pr-#.herokuapp.com/]() where the # is replaced with your PR number.
+([Return to Table of Contents](#Table-of-Contents))\
+[Heroku](http://heroku.com "Heroku Homepage") is used to for continuous deployment. Any open PRs coming from within the repo (ie not outside people), Heroku will make a temporary app to deploy it. The url that it can be found at is <https://gude-foods-pr-#.herokuapp.com/> where the # is replaced with your PR number.\
 Please reference the [Heroku](/Documentation/HEROKU.md) file for instructions on how to setup your own Heroku app.
