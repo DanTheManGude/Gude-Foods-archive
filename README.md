@@ -27,7 +27,7 @@
 
 ## Description
 ([Return to Table of Contents](#Table-of-Contents))  
-This application is to serve as a personal collection of food recipies that is also shoreable to friends and strangers.  
+This application is to serve as a personal collection of food recipies that is also shareable to friends and strangers.  
 Production url: http://pepband.student.rit.edu
 
 ## How to Use It
@@ -60,7 +60,7 @@ Production url: http://pepband.student.rit.edu
   * frontend/ –– All the code and content for the [frontend](#Frontend)
   * src/ –– Source code for the [backend](#Backend)
   * Documentation/ –– various Documentation files
-  * LICENSE –– MIT License
+  * LICENSE –– ISC License
   * Procfile –– Settings for [Heroku deployment](#Heroku-Deployment)
   * README.md –– Specifications of how to use the application
   * app.json –– Configuration for deploying an [Heroku](#Heroku-Deployment) app for each PR
