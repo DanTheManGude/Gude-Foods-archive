@@ -1,3 +1,5 @@
+"use es6";
+
 import React, { Component } from "react";
 import API from "../../utils/API";
 

@@ -5,9 +5,8 @@ import App from "./components/App";
 import "./css/index.css";
 import * as serviceWorker from "./serviceWorker";
 import { firebaseConfig } from "./firebaseConfig.js";
-
-let firebase = require("firebase/app");
 require("firebase/auth");
+export var firebase = require("firebase/app");
 
 firebase.initializeApp(firebaseConfig);
 

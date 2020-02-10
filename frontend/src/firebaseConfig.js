@@ -1,10 +1,9 @@
-export const firebaseConfig = {
-  apiKey: "AIzaSyBfqTo73XQZKjc0MTXd2JtrGnnQshRDtEo",
-  authDomain: "gude-foods-dev.firebaseapp.com",
-  databaseURL: "https://gude-foods-dev.firebaseio.com",
-  projectId: "gude-foods-dev",
-  storageBucket: "gude-foods-dev.appspot.com",
-  messagingSenderId: "750063795638",
-  appId: "1:750063795638:web:4cc7ee368e636258069517",
-  measurementId: "G-WCMP672P1Q"
+const firebaseConfig = {
+  apiKey: "AIzaSyAPVomtOQIEG2Gb0YuaSu6gcnv7fK3sPFU",
+  authDomain: "gude-foods.firebaseapp.com",
+  databaseURL: "https://gude-foods.firebaseio.com",
+  projectId: "gude-foods",
+  storageBucket: "gude-foods.appspot.com",
+  messagingSenderId: "274231175123",
+  appId: "1:274231175123:web:229727ace473d98c24b126"
 };

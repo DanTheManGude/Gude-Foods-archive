@@ -1,3 +1,5 @@
+"use es6";
+
 import React, { Component } from "react";
 
 export class NotFound extends Component {
