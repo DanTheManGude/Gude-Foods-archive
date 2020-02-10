@@ -1,10 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import App from "./components/App";
+import "./css/index.css";
 import * as serviceWorker from "./serviceWorker";
+import { firebaseConfig } from "./firebaseConfig.js";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+let firebase = require("firebase/app");
+require("firebase/auth");
+
+firebase.initializeApp(firebaseConfig);
+
+const render = () => {
+  ReactDOM.render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+    document.getElementById("root")
+  );
+  console.log("Rendered the Application");
+};
+
+render();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

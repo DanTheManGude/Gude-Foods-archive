@@ -1,7 +1,7 @@
 {
   "name": "gude-foods",
   "version": "0.0.0",
-  "description": "Personal collection of food recipies that is also shareable to friends and strangers",
+  "description": "Collection of food recipies for yourself and friends",
   "main": "src/server.js",
   "scripts": {
     "test": "mocha './src/*.test.js'",
