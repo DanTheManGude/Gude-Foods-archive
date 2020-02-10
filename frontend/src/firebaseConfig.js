@@ -1,4 +1,4 @@
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyAPVomtOQIEG2Gb0YuaSu6gcnv7fK3sPFU",
   authDomain: "gude-foods.firebaseapp.com",
   databaseURL: "https://gude-foods.firebaseio.com",
