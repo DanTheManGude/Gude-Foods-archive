@@ -102,7 +102,7 @@ Hit me up at [dgude31@gmail.com](mailto:dgude31@gmail.com "My Email").
 
 ### Pull Request Checklist
 
-Be sure to follow these guidelines for making a [PR](https://circleci.com/gh/DanTheManGude/Gude-Foods "CircleCI for the application").
+Be sure to follow these guidelines for making a [PR](https://github.com/DanTheManGude/Gude-Foods/pulls "Current PRs").
 
 - The current history of the target branch is reflected in your branch
 - Dependencies are up to date (`npm run update`)
