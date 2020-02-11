@@ -22,7 +22,7 @@
     "url": "git+https://github.com/DanTheManGude/Gude-Foods.git"
   },
   "author": "DanTheManGude",
-  "license": "GNU GPL-3.0",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/DanTheManGude/Gude-Foods/issues"
   },

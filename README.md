@@ -64,7 +64,7 @@ Production url: http://gudefoods.recipes
 - frontend/ –– All the code and content for the [frontend](#Frontend)
 - src/ –– Source code for the [backend](#Backend)
 - Documentation/ –– various Documentation files
-- LICENSE –– ISC License
+- LICENSE –– GNU GPL-3.0 License
 - Procfile –– Settings for [Heroku deployment](#Heroku-Deployment)
 - README.md –– Specifications of how to use the application
 - app.json –– Configuration for deploying an [Heroku](#Heroku-Deployment) app for each PR
