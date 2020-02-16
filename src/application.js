@@ -1,11 +1,7 @@
 const childProcess = require("child_process");
 
 class App {
-  constructor() {
-    this.logs = [];
-  }
-
-  logReq(req) {
+  static logReq(req) {
     const { date, method, path, query, body } = req;
 
     if (
@@ -23,7 +19,7 @@ class App {
       query,
       body
     };
-    this.logs.push(log);
+    return log;
   }
 
   static ping() {
@@ -47,10 +43,6 @@ class App {
     }
 
     return { version, hash };
-  }
-
-  getLogs() {
-    return this.logs;
   }
 }
 

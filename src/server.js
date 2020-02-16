@@ -11,7 +11,7 @@ const BUILDPATH = "../frontend/build";
 const PORT = process.env.PORT || 3030;
 
 const logger = (req, res, next) => {
-  app.logReq(req);
+  //console.log(Application.logReq(req));
   next();
 };
 
@@ -26,10 +26,6 @@ server.get("/ping", (req, res) => {
 
 server.get("/api/revision", (req, res) => {
   res.send(Application.revision());
-});
-
-server.get("/api/logs", (req, res, next) => {
-  res.send(app.getLogs());
 });
 
 server.get("/*", (req, res) => {

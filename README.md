@@ -1,5 +1,7 @@
 # Gude Foods
 
+![CircleCI](https://img.shields.io/circleci/build/github/DanTheManGude/Gude-Foods/master?label=build&logo=CircleCI&logoColor=blue) ![Version](https://img.shields.io/github/package-json/v/DanTheManGude/Gude-Foods/master?label=version&color=orange) ![License](https://img.shields.io/github/license/DanTheManGude/Gude-Foods?color=purple)
+
 ## Table of Contents
 
 - [Gude Foods](#gude-foods)
@@ -9,13 +11,12 @@
     - [Technical Requirements](#technical-requirements)
     - [Getting Started](#getting-started)
     - [What is in the Folder](#what-is-in-the-folder)
-      - [What is in Documentation](#what-is-in-documentation)
     - [What does `npm run` do?](#what-does-npm-run-do)
   - [How to contribute](#how-to-contribute)
     - [Pull Request Checklist](#pull-request-checklist)
     - [Guidelines](#guidelines)
     - [Branches](#branches)
-    - [Linting](#linting)
+    - [Prettier](#prettier)
     - [Versioning](#versioning)
   - [How does it work though?](#how-does-it-work-though)
     - [Frontend](#frontend)
@@ -23,6 +24,7 @@
     - [API paths](#api-paths)
     - [Tests](#tests)
   - [Heroku Deployment](#heroku-deployment)
+  - [Contact](#contact)
 
 ## Description
 
@@ -32,7 +34,7 @@ Production url: http://gudefoods.recipes
 
 ## How to Use It
 
-([Return to Table of Contents](#Table-of-Contents))
+([Return to Table of Contents](#Table-of-Contents))\
 
 ### Technical Requirements
 
@@ -72,12 +74,6 @@ Production url: http://gudefoods.recipes
 - node_modules/ –– Loaded [Node](#Technical-Requirements) dependencies (don't edit this folder or include in VC)
 - package-lock.json –– Verbose data on dependencies (don't edit this file or include in VC)
 
-#### What is in Documentation
-
-- API.json –– Documentation on the [API](#API-paths)
-- HEROKU.md –– Instructions to set up your own [Heroku](#Heroku-Deployment) app
-- REQUIREMENTS.md –– Technical requirements of the application
-
 ### What does `npm run` do?
 
 [npm](#Technical-Requirements) allows for very easy scripting of an application. There are quite a few for this project.
@@ -93,12 +89,12 @@ Production url: http://gudefoods.recipes
 - `npm run build` builds a production build of the frontend
 - `npm run server` starts the server _Note: use this to run the server rather than calling `node` directly_
 - `npm run frontend` starts the frontend in development mode
+- `npm run tag k` updates the version, git tag it, and push the changes used for [Versioning](#versioning). Replace `k` with `x`, `y`, or `z`.
 - `npm run heroku-postbuild` runs during [Heroku](#Heroku-Deployment) deploy to build the frontend
 
 ## How to contribute
 
 ([Return to Table of Contents](#Table-of-Contents))\
-Hit me up at [dgude31@gmail.com](mailto:dgude31@gmail.com "My Email").
 
 ### Pull Request Checklist
 
@@ -110,7 +106,7 @@ Be sure to follow these guidelines for making a [PR](https://github.com/DanTheMa
 - The code compiles without warnings as a result of code changes in this PR
 - New tests are created where applicable
 - All [tests](#Tests) pass locally and on [CircleCI](https://help.github.com/en/articles/about-pull-requests "About GitHub PRs") (`npm test`)
-- The new code follows the [Prettier](#Prettier) rules
+- The new code follows the [Prettier](#prettier) rules
 - The PR is running on the [deployment](#Heroku-Deployment) app
 - The new code works on the deployment app
 - README sections are updated appropriately
@@ -122,7 +118,7 @@ Open PRs will be built and deployed using [Heroku](#Heroku-Deployment) to test o
 ### Guidelines
 
 - To work on an open issue, create a [branch](#Branches) with a name that pertains to that task, and assign it to yourself.
-- Follow the existing coding pattern and practicies.
+- Follow the existing coding pattern and practicies in the codebase and outlined in this document.
 - Use good judgment
 
 ### Branches
@@ -130,19 +126,17 @@ Open PRs will be built and deployed using [Heroku](#Heroku-Deployment) to test o
 - `master` source for PROD deploys <https://gudefoods.recipes>
 - `qa` Staging QA area before rolling something out to PROD. <https://qa.gudefoods.recipes>
 - `dev` has a live DEV deploy to test changes <https://dev.gudefoods.recipes>
-- _Note: the history on `dev` may be overwitten at anytime_
 - Create feature branches as you see fit.
 - When done with your feature, make a PR into `qa`.
 - Delete branches after merging when a feature is finished.
 
 ### Prettier
 
-[Prettier](https://prettier.io "Prettier website") is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary. It integrates with many popular editors.
+[Prettier](https://prettier.io "Prettier website") is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary. It integrates with many popular editors. Ensure that all code is checked by Prettier.
 
 ### Versioning
 
-Version changes shall be done at the time of merging the PR (not before hand). Tag the commit that updates the version with `git tag vX.Y.Z` `git push --tags`
-You should update the version value in `/package.json` accordingly in format x.y.z
+Version changes shall be done at the time of merging the PR (not before hand). Tag the commit that updates the version with `npm run tag <x, y, or z>`
 
 - x is incremented with major application changes
 - y is incremented with every merged PR to `master`
@@ -177,5 +171,12 @@ Testing is powered by Chai and Mocha. To run the test use `npm test`. Tests are 
 ## Heroku Deployment
 
 ([Return to Table of Contents](#Table-of-Contents))\
-[Heroku](http://heroku.com "Heroku Homepage") is used to for continuous deployment. Any open PRs coming from within the repo (ie not outside people), Heroku will make a temporary app to deploy it. The url that it can be found at is <https://gude-foods-pr-#.herokuapp.com/> where the # is replaced with your PR number.\
-Please reference the [Heroku](/Documentation/HEROKU.md) file for instructions on how to setup your own Heroku app.
+
+[Heroku](http://heroku.com "Heroku Homepage") is used to for continuous deployment for PROD, QA, and DEV. Any open PRs, Heroku will make a temporary app to deploy it. The url that it can be found at is <https://gude-foods-pr-#.herokuapp.com/> where the # is replaced with your PR number. The app is put to sleep after inactivity, give it a few seconds to load the first time of a new session.
+Please reference the [Heroku](/Documentation#Heroku) file for instructions on how to setup your own Heroku app.
+
+## Contact
+
+([Return to Table of Contents](#Table-of-Contents))\
+
+Original creator and main developer: Daniel Gude [dgude31@gmail.com](mailto:dgude31@gmail.com "My Email")

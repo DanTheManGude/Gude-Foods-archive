@@ -1,0 +1,46 @@
+{
+  "info": {
+    "description": "API for Gude Foods",
+    "contact": "https://github.com/DanTheManGude/Gude-Foods#contact",
+    "url": "https://gudefoods.recipes"
+  },
+  "paths": {
+    "/ping": {
+      "get": {
+        "description": "Test path to check if the server is running",
+        "responses": {
+          "200": {
+            "description": "Hardcoded baseline response",
+            "type": "text",
+            "content": "'pong'"
+          }
+        }
+      }
+    },
+    "/api/revision": {
+      "get": {
+        "description": "Current revision of the code, useful for checking running application against a revision in the codebase",
+        "responses": {
+          "200": {
+            "description": "Project version defined in package.json and current Git hash",
+            "type": "json",
+            "content": {
+              "version": "<calculated version>",
+              "hash": "<calculated hash>"
+            }
+          }
+        }
+      }
+    },
+    "/*": {
+      "get": {
+        "description": "Frontend website",
+        "responses": {
+          "description": "Production build of frontend react app",
+          "type": "html"
+        }
+      }
+    }
+  },
+  "definitions": {}
+}
