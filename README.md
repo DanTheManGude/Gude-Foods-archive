@@ -28,13 +28,13 @@
 
 ## Description
 
-([Return to Table of Contents](#Table-of-Contents))\
+([Return to Table of Contents](#Table-of-Contents))
 This application is to serve as a personal collection of food recipies that is also shareable to friends and strangers.
 Production url: http://gudefoods.recipes
 
 ## How to Use It
 
-([Return to Table of Contents](#Table-of-Contents))\
+([Return to Table of Contents](#Table-of-Contents))
 
 ### Technical Requirements
 
@@ -93,7 +93,7 @@ Production url: http://gudefoods.recipes
 
 ## How to contribute
 
-([Return to Table of Contents](#Table-of-Contents))\
+([Return to Table of Contents](#Table-of-Contents))
 
 ### Pull Request Checklist
 
@@ -143,7 +143,7 @@ Version changes shall be done at the time of merging the PR (not before hand). I
 
 ## How does it work though?
 
-([Return to Table of Contents](#Table-of-Contents))\
+([Return to Table of Contents](#Table-of-Contents))
 This website has its frontend and backend split into 2 separate projects.
 
 ### Frontend
@@ -169,13 +169,13 @@ Testing is powered by Chai and Mocha. To run the test use `npm test`. Tests are 
 
 ## Heroku Deployment
 
-([Return to Table of Contents](#Table-of-Contents))\
+([Return to Table of Contents](#Table-of-Contents))
 
 [Heroku](http://heroku.com "Heroku Homepage") is used to for continuous deployment for PROD, QA, and DEV. Any open PRs, Heroku will make a temporary app to deploy it. The url that it can be found at is <https://gude-foods-pr-#.herokuapp.com/> where the # is replaced with your PR number. The app is put to sleep after inactivity, give it a few seconds to load the first time of a new session.
 Please reference the [Heroku](/Documentation#Heroku) file for instructions on how to setup your own Heroku app.
 
 ## Contact
 
-([Return to Table of Contents](#Table-of-Contents))\
+([Return to Table of Contents](#Table-of-Contents))
 
 Original creator and main developer: Daniel Gude [dgude31@gmail.com](mailto:dgude31@gmail.com "My Email")
