@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "test": "mocha './src/*.test.js'",
-    "start": "npm run version && npm run update && npm run prod",
+    "start": "npm run check && npm run update && npm run prod",
     "check": "echo 'Node Version:' && node -v && echo 'npm Version:' && npm -v",
     "hard-update": "rm package-lock.json && rm -rf node_modules/ && cd frontend && rm package-lock.json && rm -rf node_modules/ && cd .. && npm run update",
     "update": "npm install && cd frontend && npm install && cd ..",

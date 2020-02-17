@@ -37,4 +37,16 @@ server.use((err, req, res, next) => {
   res.end(res.writeHead(statusCode, err.message));
 });
 
-server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+server.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+
+  const readline = require("readline");
+  readline.emitKeypressEvents(process.stdin);
+  process.stdin.setRawMode(true);
+  process.stdin.on("keypress", (str, key) => {
+    if (key.name === "q") {
+      process.exit();
+    }
+  });
+  console.log("Press 'q' to quit");
+});
