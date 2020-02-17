@@ -15,7 +15,6 @@
     "server": "node src/server.js",
     "frontend": "cd frontend && npm start",
     "heroku-postbuild": "cd frontend && npm install && REACT_APP_PORT=Heroku npm run build",
-    "version": "-m 'Bump version to v%s'",
     "postversion": "git push --follow-tags"
   },
   "repository": {
