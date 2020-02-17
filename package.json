@@ -1,6 +1,6 @@
 {
   "name": "gude-foods",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Collection of food recipies for yourself and friends",
   "main": "src/server.js",
   "scripts": {
