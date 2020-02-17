@@ -7,7 +7,6 @@
     "test": "mocha './src/*.test.js'",
     "start": "npm run version && npm run update && npm run prod",
     "version": "echo 'Node Version:' && node -v && echo 'npm Version:' && npm -v",
-    "deploy": "REACT_APP_PORT=80 PORT=80 npm run prod",
     "hard-update": "rm package-lock.json && rm -rf node_modules/ && cd frontend && rm package-lock.json && rm -rf node_modules/ && cd .. && npm run update",
     "update": "npm install && cd frontend && npm install && cd ..",
     "prod": "npm run build && npm run server",
@@ -15,7 +14,8 @@
     "build": "cd frontend && npm run build && cd ..",
     "server": "node src/server.js",
     "frontend": "cd frontend && npm start",
-    "heroku-postbuild": "cd frontend && npm install && REACT_APP_PORT=Heroku npm run build"
+    "heroku-postbuild": "cd frontend && npm install && REACT_APP_PORT=Heroku npm run build",
+    "tag": "node tag.js"
   },
   "repository": {
     "type": "git",

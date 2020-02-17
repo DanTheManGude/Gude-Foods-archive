@@ -80,17 +80,16 @@ Production url: http://gudefoods.recipes
 
 - `npm test` runs the tests defined by `/src/app.test.js`
 - `npm start` installs dependencies for [frontend](#Frontend) and [backend](#Backend) AND runs a production build of the application _Note: you only need to run this on the first startup_
-- `npm run check` checks the version of [Node and npm](#Technical-Requirements)
+- `npm run version` checks the version of [Node and npm](#Technical-Requirements)
 - `npm run hard-update` removes the `node_modules` and `package-lock.json` for the backend and frontend AND reinstalls dependencies
 - `npm run update` installs dependencies for frontend and backend
-- `npm run dev` starts the frontend in development mode ALSO starts the server
-- `npm run deploy` runs the application in a production state using port 80
 - `npm run prod` builds a production build of the frontend AND starts the server
+- `npm run dev` starts the frontend in development mode ALSO starts the server
 - `npm run build` builds a production build of the frontend
 - `npm run server` starts the server _Note: use this to run the server rather than calling `node` directly_
 - `npm run frontend` starts the frontend in development mode
-- `npm run tag k` updates the version, git tag it, and push the changes used for [Versioning](#versioning). Replace `k` with `x`, `y`, or `z`.
 - `npm run heroku-postbuild` runs during [Heroku](#Heroku-Deployment) deploy to build the frontend
+- `npm run tag k` updates the version, git tag it, and push the changes used for [Versioning](#versioning). Replace `k` with `x`, `y`, or `z`.
 
 ## How to contribute
 
@@ -136,7 +135,7 @@ Open PRs will be built and deployed using [Heroku](#Heroku-Deployment) to test o
 
 ### Versioning
 
-Version changes shall be done at the time of merging the PR (not before hand). Tag the commit that updates the version with `npm run tag <x, y, or z>`
+Version changes shall be done at the time of merging the PR (not before hand). In the format x.y.z, run `npm run tag <x, y, or z>` when ready to update, tag and push the new version.
 
 - x is incremented with major application changes
 - y is incremented with every merged PR to `master`
