@@ -63,9 +63,10 @@ Production url: http://gudefoods.recipes
 
 - .circleci/ –– Configuration for running [CircleCI](https://circleci.com/gh/DanTheManGude/Gude-Foods "CircleCI for the application")
 - .gitignore –– Configuration for Git to not include certain files
+- .npmrc –– npm setting for commit messsage when updating the [version](#versioning)
 - frontend/ –– All the code and content for the [frontend](#Frontend)
 - src/ –– Source code for the [backend](#Backend)
-- Documentation/ –– various Documentation files
+- Documentation/ –– various [`Documentation`](/Documentation) files
 - LICENSE –– GNU GPL-3.0 License
 - Procfile –– Settings for [Heroku deployment](#Heroku-Deployment)
 - README.md –– Specifications of how to use the application
@@ -78,9 +79,10 @@ Production url: http://gudefoods.recipes
 
 [npm](#Technical-Requirements) allows for very easy scripting of an application. There are quite a few for this project.
 
+- `npm version [<newversion> | major | minor | patch]` Updates [version](#versioning) in package.json and git tags the bump commit
 - `npm test` runs the tests defined by `/src/app.test.js`
-- `npm start` installs dependencies for [frontend](#Frontend) and [backend](#Backend) AND runs a production build of the application _Note: you only need to run this on the first startup_
-- `npm run check` checks the version of [Node and npm](#Technical-Requirements)
+- `npm start` installs dependencies for [frontend](#Frontend) and [backend](#Backend) AND runs a production build of the application
+- `npm run check` prints the version of [Node and npm](#Technical-Requirements)
 - `npm run hard-update` removes the `node_modules` and `package-lock.json` for the backend and frontend AND reinstalls dependencies
 - `npm run update` installs dependencies for frontend and backend
 - `npm run prod` builds a production build of the frontend AND starts the server
@@ -88,8 +90,8 @@ Production url: http://gudefoods.recipes
 - `npm run build` builds a production build of the frontend
 - `npm run server` starts the server _Note: use this to run the server rather than calling `node` directly_
 - `npm run frontend` starts the frontend in development mode
-- `npm run heroku-postbuild` runs during [Heroku](#Heroku-Deployment) deploy to build the frontend
-- `npm version [<newversion> | major | minor | patch]` Updates [version](#versioning) in package.json, git tags and pushes changes
+- `npm run heroku-postbuild` runs during [Heroku](#Heroku-Deployment) deploy to build the frontend _You never need to run this_
+- `npm postversion` runs after the version bump has completed, pushes the version commit and the tag with it _You never need to run this_
 
 ## How to contribute
 
@@ -135,11 +137,11 @@ Open PRs will be built and deployed using [Heroku](#Heroku-Deployment) to test o
 
 ### Versioning
 
-Version changes shall be done at the time of merging the PR (not before hand). In the format x.y.z, run `npm run tag <x, y, or z>` when ready to update, tag and push the new version.
+Version changes shall be done at the time of merging the PR (not before hand). In the format major.minor.patch run `npm version [<newversion> | major | minor | patch]` when ready to update, tag and push the new version.
 
-- x is incremented with major application changes
-- y is incremented with every merged PR to `master`
-- z is incremented with every merged PR to `qa`
+- major is incremented with major application changes
+- minor is incremented with every merge to `master`
+- patch is incremented with every merge to `qa`
 
 ## How does it work though?
 
